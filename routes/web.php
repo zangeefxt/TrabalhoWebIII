@@ -16,5 +16,4 @@ Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.st
 Route::get('auth/google', [AuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
 
-Route::get('auth/govbr', [AuthController::class, 'redirectToGovBr']);
-Route::get('auth/govbr/callback', [AuthController::class, 'handleGovBrCallback']);
+
