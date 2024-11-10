@@ -1,6 +1,13 @@
-@extends('layouts.app')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
     <div class="container mt-5">
         <h2 class="text-center mb-4">Lista de Clientes</h2>
         
@@ -8,8 +15,13 @@
             <a href="{{ route('clientes.create') }}" class="btn btn-primary">Cadastrar Novo Cliente</a>
         </div>
 
+
+        <div class="form-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Filtrar por Nome, Número ou CPF">
+        </div>
+
         <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered" id="clientesTable">
                 <thead class="thead-dark">
                     <tr>
                         <th>Nome</th>
@@ -38,4 +50,29 @@
             </table>
         </div>
     </div>
-@endsection
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Função de filtro
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll('#clientesTable tbody tr');
+
+            rows.forEach(row => {
+                let name = row.cells[0].textContent.toLowerCase();
+                let number = row.cells[1].textContent.toLowerCase();
+                let cpf = row.cells[2].textContent.toLowerCase();
+
+                // Verifica se o filtro está contido no nome, número ou CPF
+                if (name.includes(filter) || number.includes(filter) || cpf.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
