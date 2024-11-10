@@ -6,6 +6,10 @@
     <title>Lista de Clientes</title>
     
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <a href="{{ url('auth/google') }}" class="btn btn-primary">Login com Google</a>
+
+    
 </head>
 <body>
     <div class="container mt-5">

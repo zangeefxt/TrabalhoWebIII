@@ -35,4 +35,18 @@ return [
         ],
     ],
 
+    'google' => [
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => env('GOOGLE_REDIRECT_URI'),
+    ],
+
+    'govbr' => [
+    'client_id' => env('GOVBR_CLIENT_ID'),
+    'client_secret' => env('GOVBR_CLIENT_SECRET'),
+    'redirect' => env('GOVBR_REDIRECT_URI'),
+    ],
+
+
+
 ];
